@@ -2,6 +2,8 @@ package com.nonexistentware.wallandblogv2.Fragment;
 
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -83,15 +85,17 @@ public class ArtistFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                new Thread(new Runnable() {
+                Handler handler = new Handler(Looper.getMainLooper());
+                handler.post(new Runnable() {
                     @Override
                     public void run() {
-                         signoutBtn.setVisibility(View.INVISIBLE);
-                         Picasso.with(getContext())
-                                 .load(R.drawable.user_account_white)
-                                 .into(userImage);
+                        signoutBtn.setVisibility(View.INVISIBLE);
+                        Picasso.with(getContext())
+                                .load(R.drawable.user_account_white)
+                                .into(userImage);
                     }
                 });
+
             }
         });
 

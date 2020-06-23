@@ -1,0 +1,2 @@
+rootProject.name='WallAndBlogv2'
+include ':app'

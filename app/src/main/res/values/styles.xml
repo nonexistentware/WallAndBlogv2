@@ -11,10 +11,20 @@
     <style name="fabLabel">
         <item name="android:background">@android:color/black</item>
     </style>
+    
+    <style name="toolbarBackArrow" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="toolbarBackArrowWhite" parent="ThemeOverlay.AppCompat.Light"/>
 
     <style name="alertDialog" parent="Theme.AppCompat.Dialog.Alert">
         <item name="android:background">@android:color/black</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

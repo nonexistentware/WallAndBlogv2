@@ -13,7 +13,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -22,7 +21,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -123,9 +121,11 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             progressBar.setVisibility(View.INVISIBLE);
+                            createUserBtn.setVisibility(View.VISIBLE);
                             fUserDatabase.child(mAuth.getUid()).child("email").setValue(mail);
                             fUserDatabase.child(mAuth.getUid()).child("name").setValue(name);
                             createProfileWithImage(name, pickedImageUri, mAuth.getCurrentUser());
+
                             Toast.makeText(RegisterActivity.this, "Account successfully created", Toast.LENGTH_SHORT).show();
                         } else {
                             progressBar.setVisibility(View.INVISIBLE);

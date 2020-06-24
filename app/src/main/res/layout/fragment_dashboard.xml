@@ -1,28 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.DashboardFragment">
+    tools:context=".Fragment.DashboardFragment"
+    android:background="@android:color/black">
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_category_dash"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/login_btn_dash"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="login"/>
+    </androidx.recyclerview.widget.RecyclerView>
 
-        <TextView
-            android:id="@+id/register_btn_dash"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="register"/>
-
-    </LinearLayout>
-
-</FrameLayout>
+</LinearLayout>

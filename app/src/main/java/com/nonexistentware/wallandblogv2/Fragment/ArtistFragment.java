@@ -16,11 +16,8 @@ import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.nonexistentware.wallandblogv2.R;
@@ -67,12 +64,7 @@ public class ArtistFragment extends Fragment {
 
 //        emailId = getIntent().getStringExtra("userId");
 
-//        auth = FirebaseAuth.getInstance();
-//        user = auth.getCurrentUser();
-//        firebaseDatabase = FirebaseDatabase.getInstance();
-//        firebaseStorage = FirebaseStorage.getInstance();
         databaseReference = firebaseDatabase.getReference("Users");
-//        storageReference = FirebaseStorage.getInstance().getReference();
 
 
         if (auth.getCurrentUser() != null) {
@@ -100,7 +92,6 @@ public class ArtistFragment extends Fragment {
         });
 
         loadUserData();
-//        checkUserOnline();
 
         return itemView;
     }
@@ -123,16 +114,6 @@ public class ArtistFragment extends Fragment {
         }
 //
 
-    }
-
-    private void checkUserOnline() {
-        if (auth.getCurrentUser() == null) {
-            userName.setText("");
-            userMail.setText("");
-            Picasso.with(getContext())
-                    .load(R.drawable.user_account_white)
-                    .into(userImage);
-        }
     }
 
     @Override
